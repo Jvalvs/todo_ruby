@@ -13,3 +13,125 @@
  *= require_tree .
  *= require_self
  */
+ body {
+    background: linear-gradient(to right, #800080, #FFA500);
+    /* linear-gradient(to right, cor-inicial, cor-final); */
+    /* Use os códigos de cores hexadecimais para roxo (#800080) e laranja (#FFA500) */
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Define a cor do texto para branco para melhor contraste */
+    font-family: 'Arial', sans-serif;
+  }
+  
+
+ .btn-custom {
+    /* Adicione seus estilos desejados aqui */
+    /*background-color: #00ff3c;*/
+    color: #fff !important; /* Exemplo: Cor azul */
+    border-radius: 5px;
+    text-decoration: none; /* Remover sublinhado padrão */
+    font-weight: bold; 
+    padding: 5px;/* Exemplo: Negrito */
+    border: none;
+    margin: 0 3px 0 3px;
+    font-size: 10px;
+    /* ... outros estilos ... */
+  }
+  
+  .btn-custom:hover {
+    opacity: 0.7;
+  }
+  
+  tr {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .btn-home {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent; /* Deixa o fundo sem cor */
+    color: #3498db; /* Cor do texto */
+    text-decoration: none;
+    border: none; /* Remove a borda */
+    font-weight: bold; /* Deixa o texto em negrito */
+    font-size: 32px; /* Tamanho da fonte */
+  }
+
+  .btn-home:hover {
+    color: #ffffff; /* Cor do texto no hover */
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between; /* Isso distribuirá o espaço entre os itens */
+    align-items: center; /* Alinha os itens verticalmente */
+    padding: 10px;
+  }
+
+   .title{
+        margin-bottom: 10px; /* Adicione um espaçamento abaixo do título */
+        display: inline-block;
+    }
+
+  .div-container {
+    width: 100%;
+    margin-bottom: 40px; /* Adicione um espaçamento interno à div container */
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+  }
+ 
+  .btn-new {
+    background-color: #3498db;
+    position: absolute;
+    left: 0;
+    color: #fff !important; /* Exemplo: Cor azul */
+    border-radius: 5px;
+    text-decoration: none; /* Remover sublinhado padrão */
+    font-weight: bold; 
+    padding: 5px;/* Exemplo: Negrito */
+    border: none;
+    margin: 0 3px 0 3px;
+    font-size: 15px;
+  }
+
+  .btn-new:hover{
+    opacity: 0.7;
+  }
+
+  .table-list{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+
+  .th-test{
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .adjust-button{
+    margin-left: 10px;
+  }
+  
+  .div-actions{
+    justify-content: center; /* Alinha os itens horizontalmente no centro */
+    align-items: center; 
+  }
+
+  .text-area{
+    width: 130px;
+    height: 24.73px;
+  }
+
+  .submit-form{
+    margin-top: 24px;
+    height: 24.73px;
+    text-align: center;
+  }

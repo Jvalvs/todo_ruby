@@ -10,25 +10,45 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
   <%= form.hidden_field :todo_list_id, value: @todo_list.id %>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.select :status, ['A fazer', 'Em andamento', 'Concluído', 'Cancelado'] %>
+  <div class="d-flex"> 
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.text_area :content , class: "text-area"%>
+    </div>
+
+    <div class="field">
+      <%= form.label :status %>
+      <%= form.select :status, ['A fazer', 'Em andamento', 'Concluído', 'Cancelado'] %>
+    </div>
+
+    <div class="field">
+      <%= form.label :Prioridade %>
+      <%= form.select :priority, ['Baixa', 'Média', 'Alta'] %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Adicionar tarefa", class: "submit-form"%>
+    </div>
+
   </div>
 
-  <div class="field">
-    <%= form.label :priority %>
-    <%= form.select :priority, ['Baixa', 'Média', 'Alta'] %>
+  <form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

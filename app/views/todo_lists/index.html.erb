@@ -1,23 +1,29 @@
 
-<h1>Todo Lists</h1>
+<div class="div-container">
+  <%= link_to 'Nova lista', new_todo_list_path, class:'btn-new' %>
+  <h3 class = 'title'>Minhas listas</h3>
+  <div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
+  </div>
+</div>
+ 
+<table class="table-list">
   <tbody>
+    <tr>
+      <th class="th-test">Lista To-do</th>
+      <th class= "th-test">Ações</th>
+
+    </tr>
     <% @todo_lists.each do |todo_list| %>
       <tr>
-        <td><%= todo_list.title %></td>
-        <td><%= todo_list.user_id %></td>
-        <td><%= link_to 'Show', todo_list_todo_items_path(todo_list) %></td>
-        <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
-        <td><%= button_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="th-test"><%= todo_list.title %></td>
+        <td>
+          <div class="d-flex flex-row div-actions">
+            <%= link_to 'Itens', todo_list_todo_items_path(todo_list), class: "btn-custom bg-success"%>
+            <%= link_to 'Editar', edit_todo_list_path(todo_list),  class: "btn-custom bg-warning" %>
+            <%= button_to 'Excluir', todo_list, method: :delete, data: { confirm: 'Are you sure?' },  class: "btn-custom bg-danger" %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Todo List', new_todo_list_path %>
+
