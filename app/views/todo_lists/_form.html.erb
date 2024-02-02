@@ -11,16 +11,19 @@
     </div>
   <% end %>
 
-  <div class="d-flex">
-    <div class="field">
-      Nome:
-      <%= form.text_field :title %>
+  <div class= "flex row g-3">
+           
+    <div class="col-auto ">
+      <%= form.text_field :title, class:"form-control" %>
     </div>
   
-    <div class="actions adjust-button">
-      <%= form.submit "Atualizar" %>
+    <div class="col-auto">
+      <%= form.submit "Atualizar", class:"btn btn-logout mb-3" %>
     </div>
     <% end %>
   </div>
 
 
+
+
+  

@@ -1,36 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<div class="div-container">
-  <%= link_to 'Adicionar tarefa', new_todo_list_todo_item_path,  class:'btn-new' %>
+<div class="div-container mb-4">
   <h3 class = 'title'>Minhas tarefas</h3>
-  <div>
-
-  </div>
+    <%= link_to 'Adicionar tarefa', new_todo_list_todo_item_path,  class:'btn-new btn' %>
 </div>
  
-<table class="table-list">
-  <tbody>
+<table class="table table-hover">
+  <thead>
     <tr>
-      <th class= "th-test">Tarefa</th>
-      <th class= "th-test">Status</th>
-      <th class= "th-test">Prioridade</th>
-      <th class= "th-test">Ações</th>
+      <th scope="col", class="text-center">Tarefa</th>
+      <th scope="col", class="text-center">Status</th>
+      <th scope="col", class="text-center">Prioridade</th>
+      <th scope="col", class="text-center">Ações</th>
     </tr>
-    <% @todo_items.each do |todo_item| %>
+  </thead>
+  <tbody>
+  <% @todo_items.each do |todo_item| %>
+    <% if todo_item.status != "Concluído" %>
       <tr>
-        <td class= "th-test"><%= todo_item.content %></td>
-        <td class= "th-test"><%= todo_item.status %></td>
-        <td class= "th-test"><%= todo_item.priority %></td>
+        <td class="text-break"><%= todo_item.content %></td>
+        <td class="text-center"><%= todo_item.status %></td>
+        <% case todo_item.priority
+            when "Alta"%>
+              <td><h6 class="mb-0 text-center"><span class="badge bg-danger w-75">Alta</span></h6></td>
+          <%when "Média"%>
+              <td><h6 class="mb-0 text-center"><span class="badge bg-warning w-75">Média</span></h6></td>
+          <%when "Baixa"%>  
+              <td><h6 class="mb-0 text-center"><span class="badge bg-success w-75">Baixa</span></h6></td>
+        <% end %>
+        
         <td>
           <div class="d-flex flex-row div-actions">
-            <%= link_to 'Editar', edit_todo_list_todo_item_path(@todo_list, todo_item), class: "btn-custom bg-warning" %>
-            <%= button_to 'Excluir', todo_list_todo_item_path(@todo_list, todo_item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-custom bg-danger" %>
+          
+            <%= link_to 'Editar', edit_todo_list_todo_item_path(@todo_list, todo_item), class: "btn btn-outline-warning me-2 btn-sm"%>
+            <%= button_to 'Excluir', todo_list_todo_item_path(@todo_list, todo_item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %>
           </div>
         </td>
       </tr>
-    <% end %>
+      <% end %>    
+  <% end %>
   </tbody>
 </table>
-
-<br>
-

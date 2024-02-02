@@ -12,43 +12,38 @@
   <% end %>
   <%= form.hidden_field :todo_list_id, value: @todo_list.id %>
 
-  <div class="d-flex"> 
+  <div> 
     <div class="field">
-      <%= form.label :content %>
-      <%= form.text_area :content , class: "text-area"%>
+      <%= form.label :content, "Conteúdo" %>
+      <%= form.text_area :content , class: "form-control text-area"%>
     </div>
 
-    <div class="field">
-      <%= form.label :status %>
-      <%= form.select :status, ['A fazer', 'Em andamento', 'Concluído', 'Cancelado'] %>
-    </div>
 
     <div class="field">
-      <%= form.label :Prioridade %>
-      <%= form.select :priority, ['Baixa', 'Média', 'Alta'] %>
+      <label for="todo_item_priority">Prioridade</label>
+      <select name="todo_item[priority]" class="form-select" id="todo_item_priority">
+        <option value="Baixa">Baixa</option>
+        <option value="Média">Média</option>
+        <option value="Alta">Alta</option>
+      </select>
     </div>
 
+
+    <div class="field">
+
+      <label for="todo_item_status">Status</label>
+      <select name="todo_item[status]" class="form-select" id="todo_item_status">
+        <option value="A fazer">A fazer</option>
+        <option value="Em andamento">Em andamento</option>
+        <option value="Concluído">Concluído</option>
+        <option value="Cancelado">Cancelado</option>
+      </select>
+    </div>
+    
     <div class="actions">
-      <%= form.submit "Adicionar tarefa", class: "submit-form"%>
+      <%= form.submit "Enviar", class:"btn btn-logout  mb-3"%>
     </div>
-
   </div>
 
-  <form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
 
 <% end %>

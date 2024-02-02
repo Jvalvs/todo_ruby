@@ -13,12 +13,12 @@
   
     <div class="d-flex">
       <div class="field">
-        Nome:
-        <%= form.text_field :title %>
+
+        <%= form.text_field :title, class:"h-100", placeholder: "Título"%>
       </div>
     
-      <div class="actions adjust-button">
-        <%= form.submit "Criar" %>
+      <div class="actions adjust-button ">
+        <%= form.submit "Criar", class:"btn btn-logout text-center m-0"%>
       </div>
       <% end %>
     </div>

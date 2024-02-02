@@ -1,34 +1,37 @@
 
-<div class="div-container">
-  <%= link_to 'Nova lista', new_todo_list_path, class:'btn-new' %>
+<div class="div-container mb-3">
+  <%= link_to 'Nova lista', new_todo_list_path, class:'btn btn-new' %>
   <h3 class = 'title'>Minhas listas</h3>
   <div>
 
   </div>
 </div>
  
-<table class="table-list">
-  <tbody>
+ 
+<table class="table table-hover">
+  <thead>
     <tr>
-      <th class="th-test">Lista To-do</th>
-      <th class= "th-test">Ações</th>
-
+      <th scope="col", class="text-center">Lista To-do</th>
+      <th scope="col", class="text-center">Ações</th>
     </tr>
+  </thead>
+  <tbody>
     <% @todo_lists.each do |todo_list| %>
       <tr>
-        <td class="th-test"><%= todo_list.title %></td>
+        <td class="text-break"><%= todo_list.title %></td>
         <td>
           <div class="d-flex flex-row div-actions">
-            <%= link_to 'Itens', todo_list_todo_items_path(todo_list), class: "btn-custom bg-success"%>
-            <%= link_to 'Editar', edit_todo_list_path(todo_list),  class: "btn-custom bg-warning" %>
-            <%= button_to 'Excluir', todo_list, method: :delete, data: { confirm: 'Are you sure?' },  class: "btn-custom bg-danger" %>
+            <%= link_to 'Itens', todo_list_todo_items_path(todo_list), class: "btn btn-outline-success me-2 btn-sm"%>
+            <%= link_to 'Editar', edit_todo_list_path(todo_list),  class: "btn btn-outline-warning me-2 btn-sm" %>
+            <%= button_to 'Excluir', todo_list, method: :delete, data: { confirm: 'Are you sure?' },  class: "btn btn-outline-danger btn-sm" %>
           </div>
         </td>
       </tr>
     <% end %>
   </tbody>
+
+
 </table>
 
-<br>
 
 
