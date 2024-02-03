@@ -3,12 +3,12 @@
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
 ARG RUBY_VERSION=3.0.2
 FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
-
+RUN echo "ok"
 # Rails app lives here
 WORKDIR /rails
 
 # Set production environment
-ENV RAILS_ENV=development \
+ENV RAILS_ENV=production \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development"
@@ -20,6 +20,13 @@ FROM base as build
 # Install packages needed to build gems
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git libvips pkg-config
+
+# Install dependencies
+RUN apt-get install -y gnupg2 curl && \
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+  curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+  apt-get update && apt-get install -y yarn nodejs
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
@@ -34,7 +41,7 @@ COPY . .
 RUN bundle exec bootsnap precompile app/ lib/
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+RUN SECRET_KEY_BASE=1 ./bin/rails assets:precompile
 
 
 # Final stage for app image
@@ -59,4 +66,4 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
+CMD ["./bin/rails", "server", "-b", "0.0.0.0"] 
