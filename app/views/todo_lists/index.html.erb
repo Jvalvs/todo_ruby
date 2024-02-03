@@ -1,12 +1,7 @@
-
 <div class="div-container mb-3">
   <%= link_to 'Nova lista', new_todo_list_path, class:'btn btn-new' %>
   <h3 class = 'title'>Minhas listas</h3>
-  <div>
-
-  </div>
 </div>
- 
  
 <table class="table table-hover">
   <thead>
@@ -22,14 +17,13 @@
         <td>
           <div class="d-flex flex-row div-actions">
             <%= link_to 'Itens', todo_list_todo_items_path(todo_list), class: "btn btn-outline-success me-2 btn-sm"%>
-            <%= link_to 'Editar', edit_todo_list_path(todo_list),  class: "btn btn-outline-warning me-2 btn-sm" %>
-            <%= button_to 'Excluir', todo_list, method: :delete, data: { confirm: 'Are you sure?' },  class: "btn btn-outline-danger btn-sm" %>
+            <%= link_to 'Editar', edit_todo_list_path(todo_list), class: "btn btn-outline-warning me-2 btn-sm" %>
+            <%= button_to 'Excluir', todo_list, method: :delete, class: "btn btn-outline-danger btn-sm" %>
           </div>
         </td>
       </tr>
     <% end %>
   </tbody>
-
 
 </table>
 

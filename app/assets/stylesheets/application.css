@@ -173,3 +173,12 @@
   a.icon:hover{
     background-color:transparent!important;
   }
+
+  .scrollable-container {
+    max-height: 400px !important; /* Defina a altura máxima desejada para ativar o scroll */
+    overflow-y: auto !important;  /* Adiciona uma barra de rolagem vertical quando necessário */
+  }
+  
+  .content-adjust{
+    width: 330px !important;
+  }

@@ -72,4 +72,10 @@ class TodoItemsController < ApplicationController
     def todo_item_params
       params.require(:todo_item).permit(:content, :todo_list_id, :status, :priority)
     end
+
+    def alterar_status
+      novo_status = params[:todo_item][:status]
+      @todo_item.update(status: novo_status)
+      redirect_to root_path, notice: 'Status alterado com sucesso!'
+    end
 end
