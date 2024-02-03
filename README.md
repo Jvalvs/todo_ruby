@@ -13,26 +13,35 @@ This is a simple Todo List application built using Ruby on Rails, incorporating 
 ## Prerequisites
 
 - Ruby (version 3.0.2)
-- Rails (version X.X.X)
+- Rails (version 6.1.7)
 - SQLite or other preferred database
 - Node.js and Yarn for asset compilation
+- Docker
 
-Things you may want to cover:
+## Getting started
+1. Clone this repo
+```sh
+  git clone https://github.com/Jvalvs/todo_ruby
+```
+2. Create the database and run migrations
+```sh
+  rails db:create
+  rails db:migrate
+```
+3. Start the server at http://localhost:3000/
+```sh
+  rails server
+```
 
-* Ruby version
+## Usage
+- Sign up or log in to your account.
+- Create new todo lists.
+- Add todo items to each list.
+- Update or delete todo lists and items as needed.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Docker
+Download de docker image: https://hub.docker.com/repository/docker/jvalvs/todo_ruby/general
+Run docker
+```sh
+docker run -dp 3000:3000 jvalvs/todo_ruby:0.0.0
+```
