@@ -1,6 +1,0 @@
-<!-- views/todo_lists/todo_items/_form.html.erb -->
-
-<%= form_for [@todo_list, @todo_item], url: { action: "alterar_status" }, method: :patch do |f| %>
-  <%= f.hidden_field :status, value: 'Concluido' %>
-  <%= f.submit 'Marcar como Concluído', class: 'btn btn-primary' %>
-<% end %>
